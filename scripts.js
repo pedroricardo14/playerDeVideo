@@ -7,6 +7,12 @@ const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
+const max = document.querySelector('.maximizar');
+
+function maximizar() {
+    video.requestFullscreen();
+  }
+
 /* Build out functions */
 function togglePlay() {
   const method = video.paused ? 'play' : 'pause';
@@ -55,11 +61,30 @@ function updatePlayedPercentage() {
   document.querySelector('.played-percentage').textContent = `${currentTime}s`;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Hook up the event listeners */
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
 video.addEventListener('timeupdate', handleProgress);
+max.addEventListener('click', maximizar);
 
 // Add event listeners
 video.addEventListener('volumechange', updateVolumeDisplay);
